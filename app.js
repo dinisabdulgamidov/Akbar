@@ -13,7 +13,7 @@ const products=[
 {id:11,n:"Средство для посуды",c:"Бытовая химия",p:160,u:"шт.",e:"🧴"},
 {id:12,n:"Мандарины",c:"Овощи и фрукты",p:180,u:"кг",e:"🍊"}
 ];
-const WHATSAPP_PHONE=""; // Укажите номер магазина в международном формате, только цифры. Например: 79991234567
+const WHATSAPP_PHONE="79288300707"; // WhatsApp магазина: +7 928 830-07-07
 const cart=new Map();let cat="Все",query="";
 const $=id=>document.getElementById(id),rub=n=>new Intl.NumberFormat("ru-RU").format(n)+" ₽";
 function draw(){const list=products.filter(x=>(cat==="Все"||x.c===cat)&&x.n.toLowerCase().includes(query));$("products").innerHTML=list.map(x=>`<article class="product"><div class="product-visual"><span>${x.e}</span></div><small>${x.c}</small><h3>${x.n}</h3><div class="product-bottom"><strong>${rub(x.p)} <small>/ ${x.u}</small></strong><button class="add" data-add="${x.id}" aria-label="Добавить ${x.n} в корзину">+</button></div></article>`).join("");$("empty").hidden=!!list.length;$("catalogCount").textContent=list.length+" товаров"}
