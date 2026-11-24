@@ -111,3 +111,10 @@ footer{max-width:1240px;margin:auto;border-top:1px solid var(--line);padding:28p
 .site-header .brand-name{display:block;color:#d71920;font-family:Manrope,Arial,sans-serif;font-size:43px;font-weight:900;line-height:1;letter-spacing:-2px;text-shadow:0 2px 0 #8e1712,0 4px 0 rgba(142,23,18,.12);white-space:nowrap}
 @media(max-width:1050px){.site-header .brand{width:220px;min-width:190px;gap:9px}.site-header .brand img{width:48px;height:48px}.site-header .brand-name{font-size:35px}}
 @media(max-width:760px){.site-header .brand{width:auto;min-width:0;gap:8px}.site-header .brand img{width:43px;height:43px}.site-header .brand-name{font-size:31px}}
+
+/* Single large red AKBAR wordmark in the top-left header */
+.site-header .brand{width:300px;min-width:270px;height:76px;display:flex;align-items:center;justify-content:flex-start;gap:0;flex:none;text-decoration:none;overflow:visible}
+.site-header .brand img{display:none!important}
+.site-header .brand .brand-name{display:block;color:#e20d19;font-family:Manrope,Arial,sans-serif;font-size:clamp(48px,4.4vw,66px);font-weight:900;line-height:.95;letter-spacing:-3.5px;text-shadow:0 2px 0 #a90d14,0 4px 0 rgba(120,0,0,.15);white-space:nowrap}
+@media(max-width:1050px){.site-header .brand{width:240px;min-width:210px;height:66px}.site-header .brand .brand-name{font-size:50px}}
+@media(max-width:760px){.site-header .brand{width:auto;min-width:0;height:52px}.site-header .brand .brand-name{font-size:40px;letter-spacing:-2.5px}}
