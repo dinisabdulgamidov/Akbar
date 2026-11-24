@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="180 430 670 175" role="img" aria-label="АКБАР — фирменный логотип с тележкой">
-<defs><filter id="isolate" color-interpolation-filters="sRGB">
-<feColorMatrix type="matrix" values="0 0 0 0 0.788  0 0 0 0 0.169  0 0 0 0 0.145  0.2126 0.7152 0.0722 0 0"/>
-<feComponentTransfer><feFuncA type="linear" slope="10" intercept="-9.45"/></feComponentTransfer>
-</filter></defs>
-<image href="akbar-logo.jpg" x="0" y="0" width="1024" height="1024" filter="url(#isolate)"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="180 430 670 175" role="img" aria-label="АКБАР — фирменный логотип с тележкой">
+  <defs>
+    <filter id="logo-cutout" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values="0 0 0 0 0.788  0 0 0 0 0.169  0 0 0 0 0.145  0.2126 0.7152 0.0722 0 0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="10" intercept="-9.45"/></feComponentTransfer>
+    </filter>
+  </defs>
+  <image xlink:href="./akbar-logo.jpg" href="./akbar-logo.jpg" x="0" y="0" width="1024" height="1024" preserveAspectRatio="none" filter="url(#logo-cutout)"/>
 </svg>
