@@ -1,91 +1,36 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#d92f24">
   <meta name="description" content="АКБАР МАРКЕТ — продукты и товары с доставкой по Нурадилово, Солнечному, Хамавюрту и Борагангечу.">
   <title>АКБАР МАРКЕТ — покупки рядом с домом</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
 </head>
 <body>
   <div class="topline">Доставляем по Нурадилово, Солнечному, Хамавюрту и Борагангечу</div>
   <header class="site-header">
     <a class="brand" href="#" aria-label="АКБАР МАРКЕТ — главная"><img src="assets/akbar-logo.jpg" alt="АКБАР — торговый центр"></a>
-    <label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" placeholder="Найти любимые продукты..." aria-label="Поиск товаров"><kbd>⌘ K</kbd></label>
+    <label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" placeholder="Найти любимые продукты..." aria-label="Поиск товаров"><kbd>Ctrl K</kbd></label>
     <button class="cart-trigger" id="openCart" aria-label="Открыть корзину"><span class="cart-icon">🛒</span><span>Корзина</span><b id="count">0</b></button>
   </header>
   <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow"><i></i> ВАШ МАГАЗИН РЯДОМ</span>
-        <h1>Всё нужное.<br><em>Рядом с домом.</em></h1>
-        <p>Свежие продукты и товары на каждый день — выбирайте онлайн, а мы поможем с доставкой.</p>
-        <a class="primary-btn" href="#catalog">Перейти к покупкам <span>→</span></a>
-        <div class="hero-note"><span>✓</span> Удобно заказывать прямо с телефона</div>
-      </div>
-      <div class="hero-sticker"><strong>АКБАР</strong><span>ПОКУПКИ<br>С УДОВОЛЬСТВИЕМ</span><b>♥</b></div>
+    <section class="hero"><div class="hero-copy"><span class="eyebrow"><i></i> ВАШ МАГАЗИН РЯДОМ</span><h1>Всё нужное.<br><em>Рядом с домом.</em></h1><p>Свежие продукты и товары на каждый день — выбирайте онлайн, а мы поможем с доставкой.</p><a class="primary-btn" href="#catalog">Перейти к покупкам <span>→</span></a><div class="hero-note"><span>✓</span> Удобно заказывать прямо с телефона</div></div><div class="hero-sticker"><strong>АКБАР</strong><span>ПОКУПКИ<br>С УДОВОЛЬСТВИЕМ</span><b>♥</b></div></section>
+    <section class="perks" aria-label="Преимущества"><article><span class="perk-icon">🚚</span><div><b>Доставка рядом</b><small>В четыре ближайших села</small></div></article><article><span class="perk-icon">🎁</span><div><b>Бесплатно от 1 000 ₽</b><small>Во все четыре села</small></div></article><article><span class="perk-icon">💬</span><div><b>Заказ через WhatsApp</b><small>Быстро и удобно</small></div></article></section>
+    <section class="promo-section" id="promotions"><div class="section-heading"><div><span class="eyebrow">ВЫГОДНЫЕ ПРЕДЛОЖЕНИЯ</span><h2>Акции и скидки</h2><p>Товары со специальными ценами</p></div><span class="promo-tag">🔥 ВЫГОДНО</span></div><div id="promoProducts" class="products promo-products"></div><div id="noPromos" class="empty-state">Скоро здесь появятся специальные предложения.</div></section>
+    <section class="catalog-section" id="catalog"><div class="section-heading"><div><span class="eyebrow">ВЫБИРАЙТЕ ЛЮБИМОЕ</span><h2>Покупки на каждый день</h2><p>Найдите всё необходимое в нашем каталоге</p></div><span class="catalog-count" id="catalogCount"></span></div>
+      <nav class="category-list" id="filters" aria-label="Категории товаров"><button class="active" data-cat="Все">Все товары</button><button data-cat="Овощи и фрукты">🥑 Овощи и фрукты</button><button data-cat="Молочные продукты">🥛 Молочные</button><button data-cat="Бакалея">🌾 Бакалея</button><button data-cat="Напитки">🧃 Напитки</button><button data-cat="Сладости">🍫 Сладости</button><button data-cat="Бытовая химия">🧼 Для дома</button></nav>
+      <div id="products" class="products"></div><div id="empty" class="empty-state" hidden><span>🔎</span><b>Ничего не найдено</b><small>Попробуйте изменить запрос или выбрать другую категорию</small></div>
+      <p class="demo-note">Каталог и цены демонстрационные. Уточняйте актуальный ассортимент у магазина.</p>
     </section>
-
-    <section class="perks" aria-label="Преимущества">
-      <article><span class="perk-icon">🚚</span><div><b>Доставка рядом</b><small>В четыре ближайших села</small></div></article>
-      <article><span class="perk-icon">🎁</span><div><b>Бесплатно от 1 000 ₽</b><small>Во все четыре села</small></div></article>
-      <article><span class="perk-icon">💬</span><div><b>Заказ через WhatsApp</b><small>Быстро и удобно</small></div></article>
-    </section>
-
-    <section class="catalog-section" id="catalog">
-      <div class="section-heading"><div><span class="eyebrow">ВЫБИРАЙТЕ ЛЮБИМОЕ</span><h2>Покупки на каждый день</h2><p>Найдите всё необходимое в нашем каталоге</p></div><span class="catalog-count" id="catalogCount"></span></div>
-      <nav class="category-list" id="filters" aria-label="Категории товаров">
-        <button class="active" data-cat="Все">Все товары</button>
-        <button data-cat="Овощи и фрукты">🥑 Овощи и фрукты</button>
-        <button data-cat="Молочные продукты">🥛 Молочные</button>
-        <button data-cat="Бакалея">🌾 Бакалея</button>
-        <button data-cat="Напитки">🧃 Напитки</button>
-        <button data-cat="Сладости">🍫 Сладости</button>
-        <button data-cat="Бытовая химия">🧼 Для дома</button>
-      </nav>
-      <div id="products" class="products"></div>
-      <div id="empty" class="empty-state" hidden><span>🔎</span><b>Ничего не найдено</b><small>Попробуйте изменить запрос или выбрать другую категорию</small></div>
-      <p class="demo-note">Каталог пока демонстрационный: актуальные ассортимент и цены нужно подтвердить перед запуском продаж.</p>
-    </section>
-
-    <section class="delivery-section">
-      <div class="delivery-photo"><img src="assets/akbar-store.jpg" alt="Здание торгового центра АКБАР"></div>
-      <div class="delivery-copy"><span class="eyebrow">ПРИВОЗИМ К ВАМ</span><h2>Доставка по вашим адресам</h2><p>Заказывайте нужные товары — доставим в одно из четырёх сёл.</p>
-        <div class="village-list"><div><b>Нурадилово</b><strong class="free">Бесплатно</strong></div><div><b>Солнечное</b><strong>150 ₽ до 1 000 ₽</strong></div><div><b>Хамавюрт</b><strong>150 ₽ до 1 000 ₽</strong></div><div><b>Борагангечу</b><strong>150 ₽ до 1 000 ₽</strong></div></div>
-        <div class="delivery-hint">При заказе от 1 000 ₽ доставка бесплатная во все четыре села.</div>
-      </div>
-    </section>
+    <section class="delivery-section"><div class="delivery-photo"><img src="assets/akbar-store.jpg" alt="Здание торгового центра АКБАР"></div><div class="delivery-copy"><span class="eyebrow">ПРИВОЗИМ К ВАМ</span><h2>Доставка по вашим адресам</h2><p>Заказывайте нужные товары — доставим в одно из четырёх сёл.</p><div class="village-list"><div><b>Нурадилово</b><strong class="free">Бесплатно</strong></div><div><b>Солнечное</b><strong>150 ₽ до 1 000 ₽</strong></div><div><b>Хамавюрт</b><strong>150 ₽ до 1 000 ₽</strong></div><div><b>Борагангечу</b><strong>150 ₽ до 1 000 ₽</strong></div></div><div class="delivery-hint">При заказе от 1 000 ₽ доставка бесплатная во все четыре села.</div></div></section>
+    <section class="reviews-section" id="reviews"><div class="section-heading"><div><span class="eyebrow">ВАШЕ МНЕНИЕ ВАЖНО</span><h2>Отзывы покупателей</h2><p>Поделитесь впечатлением о магазине</p></div></div><div class="reviews-layout"><form id="reviewForm" class="review-form"><label for="reviewName">Ваше имя</label><input id="reviewName" maxlength="60" required placeholder="Как вас зовут?"><label for="reviewRating">Оценка</label><select id="reviewRating"><option value="5">★★★★★ — Отлично</option><option value="4">★★★★☆ — Хорошо</option><option value="3">★★★☆☆ — Нормально</option><option value="2">★★☆☆☆ — Есть замечания</option><option value="1">★☆☆☆☆ — Плохо</option></select><label for="reviewText">Отзыв</label><textarea id="reviewText" required maxlength="500" rows="3" placeholder="Расскажите о вашем опыте"></textarea><button class="primary-btn" type="submit">Оставить отзыв →</button><small>Отзыв сохранится только в этом браузере и не будет опубликован для других посетителей.</small></form><div id="reviewList" class="review-list"><div class="review-placeholder">Пока нет отзывов. Будем рады вашему первому отзыву!</div></div></div></section>
+    <section class="map-section" id="contacts"><div><span class="eyebrow">ЖДЁМ В ГОСТИ</span><h2>Наш магазин в Нурадилово</h2><p>Республика Дагестан. Точный адрес и ориентир можно уточнить по телефону.</p><a class="primary-btn" href="https://www.openstreetmap.org/search?query=Нурадилово%2C%20Дагестан" target="_blank" rel="noopener">Открыть карту →</a></div><div class="map-placeholder"><span>📍</span><b>АКБАР МАРКЕТ</b><small>Нурадилово · Республика Дагестан</small><a href="https://www.openstreetmap.org/search?query=Нурадилово%2C%20Дагестан" target="_blank" rel="noopener">Найти на OpenStreetMap</a></div></section>
     <section class="bottom-banner"><div><span class="eyebrow">АКБАР МАРКЕТ</span><h2>Покупать просто.<br>Получать удобно.</h2></div><a href="#catalog" class="light-btn">Выбрать товары →</a></section>
   </main>
-  <footer><a class="footer-brand" href="#">АКБАР МАРКЕТ</a><span>Нурадилово · Республика Дагестан</span><span>Заказы через WhatsApp</span><small>Информация о товарах и ценах уточняется у магазина.</small></footer>
-
-  <div id="shade" hidden></div>
-  <aside id="cart" aria-label="Корзина" aria-modal="true" role="dialog">
-    <div class="cart-head"><div><span class="eyebrow">ВАШ ВЫБОР</span><h2>Корзина <span id="cartItemsCount">(0)</span></h2></div><button id="close" class="icon-close" aria-label="Закрыть корзину">✕</button></div>
-    <div id="items" class="cart-items"></div>
-    <div class="checkout-panel">
-      <div class="customer-fields">
-        <label for="customerName">Ваше имя</label>
-        <input id="customerName" type="text" autocomplete="name" placeholder="Как к вам обращаться" required maxlength="80">
-        <label for="customerPhone">Номер телефона</label>
-        <input id="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required maxlength="20">
-        <label for="customerAddress">Точный адрес доставки</label>
-        <textarea id="customerAddress" autocomplete="street-address" placeholder="Улица, дом, подъезд, ориентир" required maxlength="240" rows="2"></textarea>
-      </div>
-      <label for="village">Село доставки</label>
-      <select id="village"><option>Нурадилово</option><option>Солнечное</option><option>Хамавюрт</option><option>Борагангечу</option></select>
-      <div class="sum-row"><span>Товары</span><b id="subtotal">0 ₽</b></div>
-      <div class="sum-row"><span>Доставка</span><b id="shipping">Бесплатно</b></div>
-      <div class="sum-row total-row"><span>Итого</span><b id="total">0 ₽</b></div>
-      <button id="checkout" class="whatsapp-btn" disabled><span>◉</span> Заказать через WhatsApp</button>
-      <small class="checkout-hint">Проверьте контактные данные и адрес. WhatsApp откроется с подготовленным сообщением — для отправки нажмите кнопку «Отправить» в WhatsApp.</small>
-    </div>
-  </aside>
-  <div id="toast" role="status" aria-live="polite"></div>
-</body>
-</html>
+  <footer><a class="footer-brand" href="#">АКБАР МАРКЕТ</a><span>Нурадилово · Республика Дагестан</span><span>Заказы через WhatsApp</span><button id="adminToggle" class="admin-link" type="button">Управление каталогом</button><small>Информация о товарах и ценах уточняется у магазина.</small></footer>
+  <section id="adminPanel" class="admin-panel" hidden><div class="admin-head"><div><span class="eyebrow">ЛОКАЛЬНЫЕ НАСТРОЙКИ</span><h2>Управление каталогом</h2></div><button id="adminClose" class="icon-close" type="button" aria-label="Закрыть">✕</button></div><p class="admin-warning">Изменения сохраняются только в браузере этого устройства. Это не защищённая админ-панель и не синхронизируется с другими покупателями.</p><form id="productForm" class="admin-form"><label>Название товара<input id="adminName" required maxlength="80" placeholder="Например, Апельсины"></label><label>Категория<select id="adminCategory"><option>Овощи и фрукты</option><option>Молочные продукты</option><option>Бакалея</option><option>Напитки</option><option>Сладости</option><option>Бытовая химия</option></select></label><label>Цена, ₽<input id="adminPrice" required type="number" min="1" max="1000000"></label><label>Единица измерения<input id="adminUnit" required maxlength="12" value="шт."></label><label>Эмодзи товара<input id="adminEmoji" maxlength="8" value="🛒"></label><label class="check-label"><input id="adminPromo" type="checkbox"> Показывать в акциях</label><button class="primary-btn" type="submit">Добавить товар</button></form><h3>Текущие товары</h3><div id="adminProducts" class="admin-products"></div><button id="resetCatalog" class="reset-btn" type="button">Сбросить мои изменения</button></section>
+  <div id="shade" hidden></div><aside id="cart" aria-label="Корзина" aria-modal="true" role="dialog"><div class="cart-head"><div><span class="eyebrow">ВАШ ВЫБОР</span><h2>Корзина <span id="cartItemsCount">(0)</span></h2></div><button id="close" class="icon-close" aria-label="Закрыть корзину">✕</button></div><div id="items" class="cart-items"></div><div class="checkout-panel"><div class="customer-fields"><label for="customerName">Ваше имя</label><input id="customerName" type="text" autocomplete="name" placeholder="Как к вам обращаться" required maxlength="80"><label for="customerPhone">Номер телефона</label><input id="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required maxlength="20"><label for="customerAddress">Точный адрес доставки</label><textarea id="customerAddress" autocomplete="street-address" placeholder="Улица, дом, подъезд, ориентир" required maxlength="240" rows="2"></textarea></div><label for="village">Село доставки</label><select id="village"><option>Нурадилово</option><option>Солнечное</option><option>Хамавюрт</option><option>Борагангечу</option></select><div class="sum-row"><span>Товары</span><b id="subtotal">0 ₽</b></div><div class="sum-row"><span>Доставка</span><b id="shipping">Бесплатно</b></div><div class="sum-row total-row"><span>Итого</span><b id="total">0 ₽</b></div><button id="checkout" class="whatsapp-btn" disabled><span>◉</span> Заказать через WhatsApp</button><small class="checkout-hint">WhatsApp откроется с подготовленным сообщением. Для отправки нажмите «Отправить» в WhatsApp.</small></div></aside><div id="toast" role="status" aria-live="polite"></div>
+</body></html>
