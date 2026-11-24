@@ -38,3 +38,10 @@ footer{max-width:1240px;margin:auto;border-top:1px solid var(--line);padding:28p
 .brand-wordmark small{font-size:10px;font-weight:900;letter-spacing:4.4px;color:#665c55;margin-top:7px;padding-left:2px}
 @media(max-width:1050px){.site-header .brand{width:190px;gap:9px}.site-header .brand img{width:56px;height:56px}.brand-wordmark strong{font-size:29px}.brand-wordmark small{font-size:9px;letter-spacing:3.7px}}
 @media(max-width:760px){.site-header .brand{width:auto;gap:8px}.site-header .brand img{width:48px;height:48px}.brand-wordmark strong{font-size:25px}.brand-wordmark small{font-size:8px;letter-spacing:3.1px;margin-top:5px}}
+
+/* Original AKBAR cart wordmark, isolated from its red JPG background */
+.site-header .brand{width:300px;display:flex;align-items:center;flex:none;text-decoration:none}
+.site-header .brand img{width:100%;height:auto;max-height:76px;object-fit:contain;object-position:left center;flex:none}
+.brand-wordmark{display:none}
+@media(max-width:1050px){.site-header .brand{width:250px}.site-header .brand img{max-height:66px}}
+@media(max-width:760px){.site-header .brand{width:220px}.site-header .brand img{max-height:58px}}
