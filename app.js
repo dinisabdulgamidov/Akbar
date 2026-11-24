@@ -4,6 +4,8 @@ const WHATSAPP_PHONE="79289370070";
 const $=id=>document.getElementById(id),rub=n=>new Intl.NumberFormat("ru-RU").format(n)+" ₽";
 const load=(key,fallback)=>{try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch{return fallback}};
 let products=load("akbarProducts",defaultProducts),reviews=load("akbarReviews",[]),cat="Все",query="";
+const CATALOG_VERSION="produce-2026-11";
+if(localStorage.getItem("akbarCatalogVersion")!==CATALOG_VERSION){products=defaultProducts.map(x=>({...x}));saveProducts();localStorage.setItem("akbarCatalogVersion",CATALOG_VERSION)}
 const cart=new Map();
 const safe=s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 function saveProducts(){localStorage.setItem("akbarProducts",JSON.stringify(products))}
