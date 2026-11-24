@@ -69,13 +69,21 @@
     <div class="cart-head"><div><span class="eyebrow">ВАШ ВЫБОР</span><h2>Корзина <span id="cartItemsCount">(0)</span></h2></div><button id="close" class="icon-close" aria-label="Закрыть корзину">✕</button></div>
     <div id="items" class="cart-items"></div>
     <div class="checkout-panel">
+      <div class="customer-fields">
+        <label for="customerName">Ваше имя</label>
+        <input id="customerName" type="text" autocomplete="name" placeholder="Как к вам обращаться" required maxlength="80">
+        <label for="customerPhone">Номер телефона</label>
+        <input id="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required maxlength="20">
+        <label for="customerAddress">Точный адрес доставки</label>
+        <textarea id="customerAddress" autocomplete="street-address" placeholder="Улица, дом, подъезд, ориентир" required maxlength="240" rows="2"></textarea>
+      </div>
       <label for="village">Село доставки</label>
       <select id="village"><option>Нурадилово</option><option>Солнечное</option><option>Хамавюрт</option><option>Борагангечу</option></select>
       <div class="sum-row"><span>Товары</span><b id="subtotal">0 ₽</b></div>
       <div class="sum-row"><span>Доставка</span><b id="shipping">Бесплатно</b></div>
       <div class="sum-row total-row"><span>Итого</span><b id="total">0 ₽</b></div>
       <button id="checkout" class="whatsapp-btn" disabled><span>◉</span> Заказать через WhatsApp</button>
-      <small class="checkout-hint">Следующим шагом укажем номер WhatsApp магазина. Заказ пока не отправляется автоматически.</small>
+      <small class="checkout-hint">Проверьте контактные данные и адрес. WhatsApp откроется с подготовленным сообщением — для отправки нажмите кнопку «Отправить» в WhatsApp.</small>
     </div>
   </aside>
   <div id="toast" role="status" aria-live="polite"></div>
