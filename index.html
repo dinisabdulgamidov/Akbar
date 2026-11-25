@@ -7,7 +7,7 @@
   <title>АКБАР МАРКЕТ — покупки рядом с домом</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=cart-checkout-fix-2026-11-25"><script src="app.js?v=cart-checkout-fix-2026-11-25" defer></script>
+  <link rel="stylesheet" href="styles.css?v=cart-checkout-fix-2026-11-25"><script src="app.js?v=sticky-cart-dock-2026-11-25" defer></script>
 </head>
 <body>
   <div class="topline">Доставляем по Нурадилово, Солнечному, Хамавюрту и Борагангечу</div>
@@ -33,6 +33,7 @@
   </main>
   <footer><a class="footer-brand" href="#">АКБАР МАРКЕТ</a><span>Нурадилово · Республика Дагестан</span><span>Заказы через WhatsApp</span><button id="adminToggle" class="admin-link" type="button">Управление каталогом</button><small>Информация о товарах и ценах уточняется у магазина.</small></footer>
   <section id="adminPanel" class="admin-panel" hidden><div class="admin-head"><div><span class="eyebrow">ЛОКАЛЬНЫЕ НАСТРОЙКИ</span><h2>Управление каталогом</h2></div><button id="adminClose" class="icon-close" type="button" aria-label="Закрыть">✕</button></div><p class="admin-warning">Изменения сохраняются только в браузере этого устройства. Это не защищённая админ-панель и не синхронизируется с другими покупателями.</p><form id="productForm" class="admin-form"><label>Название товара<input id="adminName" required maxlength="80" placeholder="Например, Апельсины"></label><label>Категория<select id="adminCategory"><option>Овощи и фрукты</option><option>Молочные продукты</option><option>Бакалея</option><option>Напитки</option><option>Сладости</option><option>Бытовая химия</option></select></label><label>Цена, ₽<input id="adminPrice" required type="number" min="1" max="1000000"></label><label>Единица измерения<input id="adminUnit" required maxlength="12" value="шт."></label><label>Эмодзи товара<input id="adminEmoji" maxlength="8" value="🛒"></label><label class="check-label"><input id="adminPromo" type="checkbox"> Показывать в акциях</label><button class="primary-btn" type="submit">Добавить товар</button></form><h3>Текущие товары</h3><div id="adminProducts" class="admin-products"></div><button id="resetCatalog" class="reset-btn" type="button">Сбросить мои изменения</button></section>
+  <div id="cartDock" class="cart-dock" hidden><div class="cart-dock-info"><b id="cartDockCount">0 товаров</b><span>Ваша корзина</span></div><div class="cart-dock-right"><strong id="cartDockTotal">0 ₽</strong><button id="cartDockButton" type="button">Перейти в корзину <span aria-hidden="true">→</span></button></div></div>
   <div id="shade" hidden></div>
 <aside id="cart" aria-label="Корзина" aria-modal="true" role="dialog">
   <div class="cart-head"><div><span class="eyebrow">ВАШ ВЫБОР</span><h2>Корзина <span id="cartItemsCount">(0)</span></h2></div><button id="close" class="icon-close" aria-label="Закрыть корзину">✕</button></div>
