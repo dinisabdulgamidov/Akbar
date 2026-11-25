@@ -351,3 +351,46 @@ body.checkout-open #cartDock{display:none!important}
     flex:0 0 29px!important;
   }
 }
+
+/* Customer contact shortcuts in the top announcement bar */
+.topline{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.topline-delivery{display:block}
+.topline-contacts{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+}
+.top-contact{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#fff;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.15px;
+  white-space:nowrap;
+  transition:opacity .2s ease;
+}
+.top-contact:hover{opacity:.78}
+.top-contact svg{width:16px;height:16px;flex:none}
+.whatsapp-contact svg{width:18px;height:18px}
+@media(max-width:760px){
+  .topline{gap:8px;padding:9px 10px}
+  .topline-delivery{font-size:9px;line-height:1.45}
+  .topline-contacts{gap:14px}
+  .top-contact{font-size:10px;gap:5px}
+  .top-contact svg{width:14px;height:14px}
+  .whatsapp-contact svg{width:16px;height:16px}
+}
+@media(max-width:380px){
+  .topline-contacts{gap:10px}
+  .top-contact{font-size:9px}
+}
