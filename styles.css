@@ -260,3 +260,59 @@ body.checkout-open{overflow:hidden}
 /* Keep the floating cart shortcut out of the cart drawer and checkout screen */
 body.cart-open #cartDock,
 body.checkout-open #cartDock{display:none!important}
+
+
+/* Refined AKBAR wordmark with a compact shopping-cart mark */
+.site-header .brand{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  width:auto;
+  min-width:0;
+  height:70px;
+  flex:0 1 auto;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.site-header .brand .brand-name{
+  display:block;
+  color:#e10b18;
+  font-family:"Arial Black",Impact,Manrope,sans-serif;
+  font-size:clamp(42px,4.8vw,62px);
+  font-weight:1000;
+  letter-spacing:-2.8px;
+  line-height:1;
+  text-shadow:0 2px 0 #a80d15;
+  transform:none;
+}
+.site-header .brand-cart{
+  display:block;
+  flex:0 0 34px;
+  width:34px;
+  height:34px;
+  color:#d71920;
+}
+@media(max-width:1050px){
+  .site-header .brand{gap:7px;flex:0 1 auto}
+  .site-header .brand .brand-name{font-size:clamp(36px,5.4vw,48px);letter-spacing:-2px}
+  .site-header .brand-cart{flex-basis:30px;width:30px;height:30px}
+}
+@media(max-width:760px){
+  .site-header{column-gap:10px}
+  .site-header .brand{
+    flex:1 1 0;
+    min-width:0;
+    max-width:calc(100% - 150px);
+    height:54px;
+    gap:5px;
+  }
+  .site-header .brand .brand-name{
+    font-size:clamp(31px,8.8vw,39px);
+    letter-spacing:-2px;
+    line-height:1;
+    text-shadow:0 1.5px 0 #a80d15;
+  }
+  .site-header .brand-cart{flex:0 0 27px;width:27px;height:27px}
+  .site-header .cart-trigger{flex:0 0 auto;white-space:nowrap}
+}
