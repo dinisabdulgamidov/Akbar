@@ -33,5 +33,43 @@
   </main>
   <footer><a class="footer-brand" href="#">АКБАР МАРКЕТ</a><span>Нурадилово · Республика Дагестан</span><span>Заказы через WhatsApp</span><button id="adminToggle" class="admin-link" type="button">Управление каталогом</button><small>Информация о товарах и ценах уточняется у магазина.</small></footer>
   <section id="adminPanel" class="admin-panel" hidden><div class="admin-head"><div><span class="eyebrow">ЛОКАЛЬНЫЕ НАСТРОЙКИ</span><h2>Управление каталогом</h2></div><button id="adminClose" class="icon-close" type="button" aria-label="Закрыть">✕</button></div><p class="admin-warning">Изменения сохраняются только в браузере этого устройства. Это не защищённая админ-панель и не синхронизируется с другими покупателями.</p><form id="productForm" class="admin-form"><label>Название товара<input id="adminName" required maxlength="80" placeholder="Например, Апельсины"></label><label>Категория<select id="adminCategory"><option>Овощи и фрукты</option><option>Молочные продукты</option><option>Бакалея</option><option>Напитки</option><option>Сладости</option><option>Бытовая химия</option></select></label><label>Цена, ₽<input id="adminPrice" required type="number" min="1" max="1000000"></label><label>Единица измерения<input id="adminUnit" required maxlength="12" value="шт."></label><label>Эмодзи товара<input id="adminEmoji" maxlength="8" value="🛒"></label><label class="check-label"><input id="adminPromo" type="checkbox"> Показывать в акциях</label><button class="primary-btn" type="submit">Добавить товар</button></form><h3>Текущие товары</h3><div id="adminProducts" class="admin-products"></div><button id="resetCatalog" class="reset-btn" type="button">Сбросить мои изменения</button></section>
-  <div id="shade" hidden></div><aside id="cart" aria-label="Корзина" aria-modal="true" role="dialog"><div class="cart-head"><div><span class="eyebrow">ВАШ ВЫБОР</span><h2>Корзина <span id="cartItemsCount">(0)</span></h2></div><button id="close" class="icon-close" aria-label="Закрыть корзину">✕</button></div><div id="items" class="cart-items"></div><div class="checkout-panel"><div class="customer-fields"><label for="customerName">Ваше имя</label><input id="customerName" type="text" autocomplete="name" placeholder="Как к вам обращаться" required maxlength="80"><label for="customerPhone">Номер телефона</label><input id="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required maxlength="20"><label for="customerAddress">Точный адрес доставки</label><textarea id="customerAddress" autocomplete="street-address" placeholder="Улица, дом, подъезд, ориентир" required maxlength="240" rows="2"></textarea></div><label for="village">Село доставки</label><select id="village"><option>Нурадилово</option><option>Солнечное</option><option>Хамавюрт</option><option>Борагангечу</option></select><div class="sum-row"><span>Товары</span><b id="subtotal">0 ₽</b></div><div class="sum-row"><span>Доставка</span><b id="shipping">Бесплатно</b></div><div class="sum-row total-row"><span>Итого</span><b id="total">0 ₽</b></div><button id="checkout" class="whatsapp-btn" disabled><span>◉</span> Заказать через WhatsApp</button><small class="checkout-hint">WhatsApp откроется с подготовленным сообщением. Для отправки нажмите «Отправить» в WhatsApp.</small></div></aside><div id="toast" role="status" aria-live="polite"></div>
+  <div id="shade" hidden></div>
+<aside id="cart" aria-label="Корзина" aria-modal="true" role="dialog">
+  <div class="cart-head"><div><span class="eyebrow">ВАШ ВЫБОР</span><h2>Корзина <span id="cartItemsCount">(0)</span></h2></div><button id="close" class="icon-close" aria-label="Закрыть корзину">✕</button></div>
+  <div id="items" class="cart-items"></div>
+  <div class="cart-summary">
+    <div class="sum-row"><span>Товары</span><b id="subtotal">0 ₽</b></div>
+    <div class="sum-row"><span>Доставка</span><b id="shipping">Бесплатно</b></div>
+    <div class="sum-row total-row"><span>Итого</span><b id="total">0 ₽</b></div>
+    <button id="checkout" class="whatsapp-btn" disabled>Перейти к оформлению заказа</button>
+  </div>
+</aside>
+<section id="checkoutPage" class="checkout-page" hidden aria-label="Оформление заказа">
+  <div class="checkout-page-inner">
+    <button id="backToCart" class="back-cart-btn" type="button">← Вернуться в корзину</button>
+    <span class="eyebrow">ПОСЛЕДНИЙ ШАГ</span>
+    <h1>Оформление заказа</h1>
+    <p class="checkout-intro">Укажите данные для доставки. После проверки заказа откроется WhatsApp с готовым сообщением магазину.</p>
+    <div class="checkout-card">
+      <h2>Контактные данные</h2>
+      <div class="customer-fields">
+        <label for="customerName">Ваше имя</label><input id="customerName" type="text" autocomplete="name" placeholder="Как к вам обращаться" required maxlength="80">
+        <label for="customerPhone">Номер телефона</label><input id="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required maxlength="20">
+        <label for="customerAddress">Точный адрес доставки</label><textarea id="customerAddress" autocomplete="street-address" placeholder="Улица, дом, подъезд, ориентир" required maxlength="240" rows="3"></textarea>
+      </div>
+      <label class="village-label" for="village">Село доставки</label>
+      <select id="village"><option>Нурадилово</option><option>Солнечное</option><option>Хамавюрт</option><option>Борагангечу</option></select>
+    </div>
+    <div class="checkout-card order-summary-card">
+      <h2>Ваш заказ</h2>
+      <div id="checkoutItems"></div>
+      <div class="sum-row"><span>Товары</span><b id="checkoutSubtotal">0 ₽</b></div>
+      <div class="sum-row"><span>Доставка</span><b id="checkoutShipping">Бесплатно</b></div>
+      <div class="sum-row total-row"><span>Итого к оплате</span><b id="checkoutTotal">0 ₽</b></div>
+      <button id="sendWhatsApp" class="whatsapp-btn" disabled>Написать в WhatsApp и отправить заказ</button>
+      <small class="checkout-hint">WhatsApp откроется с подготовленным сообщением. Чтобы заказ поступил магазину, нажмите «Отправить» в WhatsApp.</small>
+    </div>
+  </div>
+</section>
+<div id="toast" role="status" aria-live="polite"></div>
 </body></html>
