@@ -255,3 +255,8 @@ body.checkout-open{overflow:hidden}
  .product-buy-controls .card-quantity span{min-width:17px;font-size:13px}
  .product-buy-controls .add-to-cart{height:38px;font-size:11px;padding:0 6px;border-radius:9px}
 }
+
+
+/* Keep the floating cart shortcut out of the cart drawer and checkout screen */
+body.cart-open #cartDock,
+body.checkout-open #cartDock{display:none!important}
