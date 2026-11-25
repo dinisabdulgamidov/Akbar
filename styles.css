@@ -201,3 +201,34 @@ footer{max-width:1240px;margin:auto;border-top:1px solid var(--line);padding:28p
 #checkoutPage[hidden]{display:none!important}
 #checkoutPage:not([hidden]){display:block!important;position:fixed;inset:0;z-index:30;overflow-y:auto;background:#faf8f5}
 body.checkout-open{overflow:hidden}
+
+
+/* Mobile product controls and persistent cart dock */
+.card-actions{display:flex;align-items:center;gap:0;min-width:0}
+.product-bottom{min-width:0;gap:6px}
+.card-quantity{height:36px;padding:2px 4px;gap:3px}
+.card-quantity button{width:27px;height:30px;flex:0 0 27px}
+.card-quantity span{min-width:18px}
+.to-cart-btn{display:none!important}
+.cart-dock{display:none}
+.cart-dock[hidden]{display:none!important}
+@media(max-width:760px){
+  .product-bottom{display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:5px}
+  .product-bottom .price-stack{min-width:0;flex:1 1 auto}
+  .product-bottom .price-stack strong{font-size:clamp(17px,4.5vw,22px)}
+  .product-bottom .price-stack strong small{font-size:9px}
+  .product-bottom>.add,.product-bottom>.card-quantity{flex:0 0 auto}
+  .card-quantity{height:38px;padding:3px;gap:2px;border-radius:11px}
+  .card-quantity button{width:26px;height:30px;flex:0 0 26px;border-radius:8px;font-size:19px}
+  .card-quantity span{min-width:17px;font-size:13px}
+  .cart-dock:not([hidden]){position:fixed;display:flex;align-items:center;justify-content:space-between;gap:12px;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:12;padding:11px 12px 11px 16px;border-radius:14px;background:#202633;color:#fff;box-shadow:0 8px 28px #10152238}
+  .cart-dock-info{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .cart-dock-info b{font-size:13px;font-weight:850}
+  .cart-dock-info span{font-size:10px;color:#cbd0d9}
+  .cart-dock-right{display:flex;align-items:center;gap:10px;min-width:0}
+  .cart-dock-right strong{font-size:14px;white-space:nowrap}
+  .cart-dock-right button{border:0;border-radius:9px;background:#d71920;color:#fff;padding:12px 13px;font-size:11px;font-weight:850;white-space:nowrap}
+  .cart-dock-right button span{font-size:15px;margin-left:4px}
+  #toast{bottom:calc(84px + env(safe-area-inset-bottom))}
+  body{padding-bottom:76px}
+}
