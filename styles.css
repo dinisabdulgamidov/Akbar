@@ -188,3 +188,16 @@ footer{max-width:1240px;margin:auto;border-top:1px solid var(--line);padding:28p
 .order-summary-card .whatsapp-btn{font-size:14px;padding:17px;border-radius:8px}
 .order-summary-card .checkout-hint{font-size:11px}
 @media(max-width:600px){#cart{padding:20px 17px}.checkout-page{padding:22px 14px 35px}.checkout-card{padding:17px}.checkout-page h1{font-size:34px}.checkout-intro{font-size:12px}}
+
+
+/* Cart thumbnails: strictly constrain image intrinsic dimensions */
+#cart .cart-line{min-width:0;flex-wrap:nowrap;align-items:center}
+#cart .cart-emoji{flex:0 0 48px;width:48px;min-width:48px;height:48px;min-height:48px;max-width:48px;max-height:48px;overflow:hidden;align-self:center}
+#cart .cart-emoji img{display:block;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:100%;object-fit:contain;position:static;padding:3px}
+#cart .cart-line-info{flex:1 1 auto;width:0;min-width:0;overflow:hidden}
+#cart .cart-line-info b{overflow-wrap:anywhere}
+#cart .quantity{flex:0 0 auto;gap:6px}
+#cart .cart-items{min-height:0;overscroll-behavior:contain}
+#checkoutPage[hidden]{display:none!important}
+#checkoutPage:not([hidden]){display:block!important;position:fixed;inset:0;z-index:30;overflow-y:auto;background:#faf8f5}
+body.checkout-open{overflow:hidden}
