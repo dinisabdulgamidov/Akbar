@@ -15,7 +15,7 @@ const WHATSAPP_PHONE="79289370070";
 const $=id=>document.getElementById(id),rub=n=>new Intl.NumberFormat("ru-RU").format(n)+" ₽";
 const load=(key,fallback)=>{try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch{return fallback}};
 let products=load("akbarProducts",defaultProducts),reviews=load("akbarReviews",[]),cat="Все",query="";
-const normalizeSearch=value=>String(value||"").toLocaleLowerCase("ru-RU").replace(/ё/g,"е").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[^\\p{L}\\p{N}]+/gu," ").trim();
+const normalizeSearch=value=>String(value||"").toLocaleLowerCase("ru-RU").replace(/ё/g,"е").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\p{L}\p{N}]+/gu," ").trim();
 const CATALOG_VERSION="dagi-promo-9-flavors-2026-11-25";
 if(localStorage.getItem("akbarCatalogVersion")!==CATALOG_VERSION){products=defaultProducts.map(x=>({...x}));saveProducts();localStorage.setItem("akbarCatalogVersion",CATALOG_VERSION)}
 const cart=new Map();
@@ -39,7 +39,7 @@ $("promoProducts").addEventListener("click",handleProductAction);
 $("popularProducts").addEventListener("click",handleProductAction);
 $("filters").addEventListener("click",e=>{const b=e.target.closest("[data-cat]");if(!b)return;cat=b.dataset.cat;document.querySelectorAll("[data-cat]").forEach(x=>x.classList.toggle("active",x.dataset.cat===cat));draw()});
 const searchInput=$("search");
-searchInput.addEventListener("input",e=>{query=e.target.value; if(query.trim()){cat="Все";document.querySelectorAll("[data-cat]").forEach(x=>x.classList.toggle("active",x.dataset.cat==="Все"));} draw(); if(query.trim()) $("catalog").scrollIntoView({behavior:"smooth",block:"start"});});
+searchInput.addEventListener("input",e=>{query=e.target.value;if(query.trim()){cat="Все";document.querySelectorAll("[data-cat]").forEach(x=>x.classList.toggle("active",x.dataset.cat==="Все"));}draw();});
 searchInput.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("catalog").scrollIntoView({behavior:"smooth",block:"start"});$("products").scrollIntoView({behavior:"smooth",block:"start"});}});
 $("items").addEventListener("click",e=>{const b=e.target.closest("[data-dec],[data-inc]");if(!b)return;const id=+(b.dataset.dec||b.dataset.inc),q=(cart.get(id)||0)+(b.dataset.inc?1:-1);if(q>0)cart.set(id,q);else cart.delete(id);draw();drawCart()});
 $("cartDockButton").onclick=openCart;$("openCart").onclick=openCart;$("close").onclick=closeCart;$("shade").onclick=closeCart;$("village").onchange=drawCart;
